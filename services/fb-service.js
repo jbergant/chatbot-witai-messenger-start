@@ -36,6 +36,32 @@ module.exports = {
         }
     },
 
+
+    readResponsesFromJSON: async function(sender, userData, fileName) {
+        let self = module.exports;
+        const fs = require('fs');
+        const path = require('path');
+
+        let desiredPath = path.resolve(__dirname, `../resources/responces/${fileName.replace(/\W/g, '')}.json`);
+  
+        if (! fs.existsSync(desiredPath)) {
+            desiredPath = path.resolve(__dirname, `../resources/responces/noJSONfile.json`);
+        } 
+        try {
+            let content = JSON.parse(fs.readFileSync(desiredPath, 'utf8'));
+            console.log(content);
+            if (content.responses) {
+                for(let [i, response] of content.responses.entries()) {
+                    let text = response.variants[Math.floor(Math.random() * response.variants.length)];
+                    await self.sendTextMessage(sender, text);
+                }
+            }
+        } catch(e) {
+            console.log(e); // error in the above string (in this case, yes)!
+            await self.sendTextMessage(sender, "I'm having troubles.");
+        }
+    },
+
     /**
      * Pass control of the conversation to page inbox
      * @param senderID

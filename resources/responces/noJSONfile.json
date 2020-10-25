@@ -1,0 +1,16 @@
+{
+    "responses": [
+        {
+            "variants": [
+                "I'm having troubles comming up with a reply. ",
+                "I'm having troubles"
+            ]
+        },
+        {
+            "variants": [
+                "Can you ask me something else?",
+                "Can I do anythinge else for you?"
+            ]
+        }
+    ]
+}
