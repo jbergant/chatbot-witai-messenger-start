@@ -8,50 +8,24 @@
             ]
         },
         {
-            "variants": [
-                "I'm here to help you do your morning pages.",
-                "I'll help you do your morning pages.",
-                "Having trouble doing your morning pages? I'm here to help :)"
-            ]
+            "video": {
+                "attachment_id": "1111629125906242"
+              }
         },
         {
-            "variants": [
-                "What I can do is get in touch each morning to help you get started",
-                "I can contact you every day"
-            ]
+            "image": {
+                "attachment_id": "2796965443960061"
+              }
         },
         {
-            "variants": [
-                "I can be your accountability partner. I'll be there for you",
-                "I'll be your accountability partner and your fan"
-            ]
+            "file": {
+                "attachment_id": "1136816756715045"
+              }
         },
         {
-            "variants": [
-                "I'll lift you up when you need it",
-                "I'll puch you when you need it"
-            ]
-        },
-        {
-            "variants": [
-                "Are you in?",
-                "Wanna start"
-            ]
-        },
-        {
-            "buttons": 
-            {
-                "text": "Click start to begin",
-                "buttons": [
-                    {
-                        "type": "postback",
-                        "title": "Start",
-                        "payload": "START"
-                    }
-                ]
-            }
-            
-
+            "audio": {
+                "attachment_id": "368613697727126"
+              }
         }
     ]
 }

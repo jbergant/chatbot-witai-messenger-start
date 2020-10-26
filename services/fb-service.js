@@ -75,7 +75,15 @@ module.exports = {
 
         } else if ( response.buttons && response.buttons.text && response.buttons.buttons ) {
             await self.sendButtonMessage(sender, response.buttons.text, response.buttons.buttons);
-        } 
+        } else if (response.file) {
+            await self.sendFileMessage(sender, response.file);
+        } else if (response.video) {
+            await self.sendVideoMessage(sender, response.video);
+        } else if (response.image) {
+            await self.sendImageMessage(sender, response.image);
+        } else if (response.audio) {
+            await self.sendAudioMessage(sender, response.audio);
+        }
 
     },
 
