@@ -1,0 +1,36 @@
+{
+    "responses": [
+        {
+            "variants": [
+                "Let's start by signing the contract.",
+                "This is how it goes"
+            ]
+        },
+        {
+            "variants": [
+                "I ask you kindly to review it, print it, and keep it in eye sight",
+                "In the next 5 dyas I'll be in touch every morning to help you get started"
+            ]
+        },
+        {
+            "file": {
+                "attachment_id": "1136816756715045"
+              }
+        },
+        {
+            "buttons": 
+            {
+                "text": "Click I agree to proceed",
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "I agree",
+                        "payload": "CONTRACT"
+                    }
+                ]
+            }
+            
+
+        }
+    ]
+}

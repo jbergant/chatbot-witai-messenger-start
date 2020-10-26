@@ -1,0 +1,49 @@
+{
+    "responses": [
+        {
+            "variants": [
+                "This is what we'll do",
+                "This is how it goes"
+            ]
+        },
+        {
+            "variants": [
+                "For the next 5 days I'll contact you each morning and help you started",
+                "In the next 5 dyas I'll be in touch every morning to help you get started"
+            ]
+        },
+        {
+            "variants": [
+                "Don't worry we'll make it fun",
+                "And yes, it will be fun too"
+            ]
+        },
+        {
+            "variants": [
+                "And what you need to do is confirm after you've done your pages",
+                "Do proceed you need to confirm you've done your pages"
+            ]
+        },
+        {
+            "variants": [
+                "You need to do this to validate your part of the deal",
+                "This is what you need to do"
+            ]
+        },
+        {
+            "buttons": 
+            {
+                "text": "Click OK if you agree",
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Ok",
+                        "payload": "DEAL"
+                    }
+                ]
+            }
+            
+
+        }
+    ]
+}

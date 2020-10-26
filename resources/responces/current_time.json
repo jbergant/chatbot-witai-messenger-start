@@ -1,0 +1,10 @@
+{
+    "responses": [
+        {
+            "variants": [
+                "What is your current time (for example 3:30pm)",
+                "Please enter your current time (for example 3:30pm)"
+            ]
+        }
+    ]
+}

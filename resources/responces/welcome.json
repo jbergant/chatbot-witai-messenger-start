@@ -8,11 +8,47 @@
             ]
         },
         {
-            "one_time_notifiaction": 
+            "variants": [
+                "I'm here to help you do your morning pages.",
+                "I'll help you do your morning pages.",
+                "Having trouble doing your morning pages? I'm here to help :)"
+            ]
+        },
+        {
+            "variants": [
+                "What I can do is get in touch each morning to help you get started",
+                "I can contact you every day"
+            ]
+        },
+        {
+            "variants": [
+                "I can be your accountability partner. I'll be there for you",
+                "I'll be your accountability partner and your fan"
+            ]
+        },
+        {
+            "variants": [
+                "I'll lift you up when you need it",
+                "I'll puch you when you need it"
+            ]
+        },
+        {
+            "variants": [
+                "Are you in?",
+                "Wanna start"
+            ]
+        },
+        {
+            "buttons": 
             {
-                "title": "Click OK if I can",
-                "payload": "ONE_TIME_NOTIFICATION"
-
+                "text": "Click start to begin",
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Start",
+                        "payload": "START"
+                    }
+                ]
             }
         }
     ]
