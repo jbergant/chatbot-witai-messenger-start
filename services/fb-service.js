@@ -24,12 +24,15 @@ module.exports = {
         self.sendTypingOff(sender);
 
         let intents = response.intents;
-
-        //let entities = response.entities;
-
+      
+        let entities = response.entities;
+        let timeStates = ['CURRENT_TIME_ASK', 'CHECKIN_TIME_ASK'];
+        
 
         if (self.isDefined(intents) && intents[0] !== undefined) {
             self.handleWitIntent(sender, sessionIds, userData, response);
+        } else if (timeStates.includes(userData.conv_state)  && entities['wit$datetime:Time'] !== undefined) {
+            self.setupTimes(sender, sessionIds,userData, entities['wit$datetime:Time'][0]);
         } else {
             // @TODO: what happens here???
             self.sendTextMessage(sender, "No intent found.");
