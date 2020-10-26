@@ -52,6 +52,8 @@ module.exports = {
             console.log(content);
             if (content.responses) {
                 for(let [i, response] of content.responses.entries()) {
+                    await self.sendTypingOn(sender);
+                    await self.wait(1000);
                     let text = response.variants[Math.floor(Math.random() * response.variants.length)];
                     await self.sendTextMessage(sender, text);
                 }
@@ -60,6 +62,28 @@ module.exports = {
             console.log(e); // error in the above string (in this case, yes)!
             await self.sendTextMessage(sender, "I'm having troubles.");
         }
+    },
+
+    handleMessage: async function(response, sender, userData) {
+        let self = module.exports;
+        
+        console.log('handleMessage');
+        console.log(response);
+        if(response.variants) {
+
+            let text = response.variants[Math.floor(Math.random() * response.variants.length)];
+            await self.sendTextMessage(sender, text);
+
+        } else if ( response.buttons && response.buttons.text && response.buttons.buttons ) {
+            await self.sendButtonMessage(sender, response.buttons.text, response.buttons.buttons);
+        } 
+
+    },
+
+    wait: async function (ms) {
+        return new Promise(resolve => {
+          setTimeout(resolve, ms);
+        });
     },
 
     /**
@@ -86,13 +110,13 @@ module.exports = {
      * @param messages
      * @param sender
      */
-    handleWitIntent: function(sender, sessionIds, userData, response) {
+    handleWitIntent: async function(sender, sessionIds, userData, response) {
         let self = module.exports;
-        /*let intents = response.intents;
-        let queryText = response.text;
+        let intents = response.intents;
+        /*let queryText = response.text;
         let traits = response.traits;*/
 
-        await self.sendTextMessage(sender, 'A response from a bot :)');
+        self.readResponsesFromJSON(sender, userData, intents[0].name);
     },
 
 

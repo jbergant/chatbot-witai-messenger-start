@@ -32,12 +32,8 @@ if (!config.FB_PAGE_TOKEN) {
 if (!config.FB_VERIFY_TOKEN) {
   throw new Error('missing FB_VERIFY_TOKEN');
 }
-
 if (!config.FB_APP_SECRET) {
   throw new Error('missing FB_APP_SECRET');
-}
-if (!config.SERVER_URL) { //used for ink to static files
-  throw new Error('missing SERVER_URL');
 }
 if (!config.FB_APP_ID) { //app id
   throw new Error('missing FB_APP_ID');
