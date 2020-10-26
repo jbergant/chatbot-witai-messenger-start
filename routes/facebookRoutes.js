@@ -2,6 +2,7 @@ let witService = require('../services/wit-service');
 const userService = require('../services/user-service');
 const config = require('../config/dev.js');
 const fbService = require('../services/fb-service');
+const Firestore = require('@google-cloud/firestore');
 
 module.exports = (app, setSessionAndUser, getUserData, changeConvState, handleWitAiResponse) => {
     /**
@@ -168,6 +169,24 @@ module.exports = (app, setSessionAndUser, getUserData, changeConvState, handleWi
             case "CONTRACT": {
                 changeConvState(senderID, 'CURRENT_TIME_ASK');
                 fbService.readResponsesFromJSON(senderID, userData, 'current_time');
+                break;
+            }  
+            case "CHECKIN_DONE": {
+                changeConvState(senderID, `CHECKIN_DONE_${userData.checkin_day}`);
+
+                let fileName = `checkin_done_${userData.checkin_day}`;
+                fbService.readResponsesFromJSON(senderID, userData, fileName);
+
+                const userDataNew = {
+                    checkin_day: userData.checkin_day + 1,
+                    conv_state: `CHECKIN_DONE_${userData.checkin_day}`,
+                    conv_state_update: Firestore.Timestamp.now(),
+                    send_checkin: (userData.checkin_day === config.CHECKIN_DAYS) ? false : true
+                };
+                let sessionId = sessionIds.get(senderID);
+                userService.updateCurrentUserAndSession( senderID, sessionId, userDataNew );
+
+                
                 break;
             }  
             default: 

@@ -1,0 +1,39 @@
+{
+    "responses": [
+        {
+            "variants": [
+                "Ok. Great job",
+                "Ok. Great job"
+            ]
+        },
+        {
+            "variants": [
+                "This is day 3 of your writing ",
+                "This is day 3 of your writing "
+            ]
+        },
+        {
+            "variants": [
+                "You're doing good",
+                "You're doing good"
+            ]
+        },
+        {
+            "variants": [
+                "Just keep it up",
+                "Just keep it up"
+            ]
+        },
+        {
+            "image": {
+                "attachment_id": "365169441594443"
+              }
+        },
+        {
+            "variants": [
+                "See you tomorrow",
+                "I'll be here tomorrow"
+            ]
+        }
+    ]
+}

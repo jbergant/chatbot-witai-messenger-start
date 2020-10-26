@@ -1,0 +1,42 @@
+{
+    "responses": [
+        {
+            "audio": "https://storage.googleapis.com/achallengebotassets/assets/wooohooo.wav"
+        },
+        {
+            "variants": [
+                "Congratulations!",
+                "Congratulations!!!!"
+            ]
+        },
+        {
+            "variants": [
+                "Now keep up the good work",
+                "Now keep up the good work"
+            ]
+        },
+        {
+            "variants": [
+                "Higher the volume and dnce to this",
+                "Now higher the volume and dnce to this"
+            ]
+        },
+        {
+            "audio": {
+                "attachment_id": "368613697727126"
+              }
+        },
+        {
+            "variants": [
+                "Thank you for participating :)",
+                "Thank you for participating :)"
+            ]
+        },
+        {
+            "variants": [
+                "Hug",
+                "Hug"
+            ]
+        }
+    ]
+}

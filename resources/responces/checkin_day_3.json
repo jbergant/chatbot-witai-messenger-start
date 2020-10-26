@@ -1,0 +1,55 @@
+{
+    "responses": [
+        {
+            "variants": [
+                "Nika, kuku",
+                "Nika, kuku"
+            ]
+        },
+        {
+            "variants": [
+                "Are you here?",
+                "Are you here?"
+            ]
+        },
+        {
+            "variants": [
+                "Ready to o morning pages?",
+                "Ready to o morning pages?"
+            ]
+        },
+        {
+            "variants": [
+                "They're waitning for you",
+                "They're waitning for you"
+            ]
+        },
+        {
+            "variants": [
+                "You'll feel better after it",
+                "You'll feel better after it"
+            ]
+        },
+        {
+            "variants": [
+                "Go on and do it!",
+                "Go on and do it!"
+            ]
+        },
+        {
+            "buttons": 
+            {
+                "text": "Click the Done button when you're fiished writing",
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "DONE",
+                        "payload": "CHECKIN_DONE"
+                    }
+                ]
+            }
+            
+
+        }
+    ]
+}

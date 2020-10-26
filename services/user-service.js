@@ -148,5 +148,51 @@ module.exports = {
             });
     },
 
+        /**
+     * read users that have not replied to a mood in more than 24 hours ... but not more then 3 days?
+     * @returns {Promise<{usersSelect: Array, sessionIds: Map<any, any>}>}
+     */
+    getUsersForCheckin: async function() {
+        let usersRef = db.collection('users');
+
+        const currentDate = new Date();
+        const currentHour = currentDate.getHours();
+
+        return usersRef
+            .where('send_checkin', '==', true)
+            .get()
+            .then(async snapshot => {
+                let usersSelect = [];
+                let sessionIds = new Map();
+                if (snapshot.empty) {
+                    console.log('no users for checkin');
+
+                } else {
+                    snapshot.forEach(doc => {
+                        let user = doc.data();
+                        console.log('users for checkin');
+                        console.log(`${user.check_time} === ${currentHour}`);
+                       // if (user.facebook_id && user.check_time === currentHour) {
+                            sessionIds.set(user.facebook_id, doc.id);
+                            usersSelect.push(user.facebook_id);
+                      //  } 
+                    });
+
+                }
+                console.log('return');
+                console.log(usersSelect);
+                return {
+                    usersSelect,
+                    sessionIds
+                };
+            }).then((usersSelect) => {
+                console.log('return');
+                console.log(usersSelect);
+                return usersSelect;
+            })
+            .catch(err => {
+                console.log('Error getting users for checkin: ', err);
+            });
+    },
 
 }

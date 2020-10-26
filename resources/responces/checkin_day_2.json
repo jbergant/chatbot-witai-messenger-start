@@ -1,0 +1,54 @@
+{
+    "responses": [
+        {
+            "variants": [
+                "Hej Nika, rise and shine",
+                "Hej Nika, rise and shine"
+            ]
+        },
+        {
+            "image": {
+                "attachment_id": "3609283922425577"
+              }
+        },
+        {
+            "variants": [
+                "Are you ready to do your morning pages?",
+                "Are you ready to do your morning pages?"
+            ]
+        },
+        {
+            "variants": [
+                "Make yourself comfortable",
+                "Make yourself comfortable"
+            ]
+        },
+        {
+            "variants": [
+                "Relax your mind",
+                "Relax your mind"
+            ]
+        },
+        {
+            "variants": [
+                "Whatever comes out to the paper is fine",
+                "Whatever comes out to the paper is fine"
+            ]
+        },
+        {
+            "buttons": 
+            {
+                "text": "Click the Done button when you're fiished writing",
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "DONE",
+                        "payload": "CHECKIN_DONE"
+                    }
+                ]
+            }
+            
+
+        }
+    ]
+}

@@ -1,0 +1,55 @@
+{
+    "responses": [
+        {
+            "variants": [
+                "Morning Nika",
+                "Morning Nika"
+            ]
+        },
+        {
+            "variants": [
+                "This is your final day with me",
+                "This is your final day with me"
+            ]
+        },
+        {
+            "variants": [
+                "Congrats for doing morning pages every day :)",
+                "Congrats for doing morning pages every day :)"
+            ]
+        },
+        {
+            "variants": [
+                "Let's do it one more time",
+                "Let's do it one more time"
+            ]
+        },
+        {
+            "variants": [
+                "Ready?",
+                "Ready?"
+            ]
+        },
+        {
+            "variants": [
+                "Go!",
+                "Go!!!"
+            ]
+        },
+        {
+            "buttons": 
+            {
+                "text": "Click the Done button",
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "DONE",
+                        "payload": "CHECKIN_DONE"
+                    }
+                ]
+            }
+            
+
+        }
+    ]
+}

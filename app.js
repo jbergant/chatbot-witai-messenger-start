@@ -62,6 +62,7 @@ app.get('/', (req, res) => {
 });
 
 require('./routes/facebookRoutes')( app, setSessionAndUser, getUserData, changeConvState, fbService.handleWitAiResponse );
+require('./routes/scriptRoutes')( app, getUserData, setSessionAndUser );
 
 /**
  * set session and user

@@ -1,0 +1,54 @@
+{
+    "responses": [
+        {
+            "variants": [
+                "Hey Nika, good morning!",
+                "Hey Nika, good morning!"
+            ]
+        },
+        {
+            "variants": [
+                "Here I've got a beat to lift you up.",
+                "Here I've got a beat to lift you up."
+            ]
+        },
+        {
+            "video": {
+                "url": "https://storage.googleapis.com/achallengebotassets/assets/BM.mp4"
+              }
+        },
+        {
+            "variants": [
+                "Listen to it, then make your tea/coffee",
+                "Listen to it, then make your tea/coffee"
+            ]
+        },
+        {
+            "variants": [
+                "Whatever makes you feel comfortable",
+                "Whatever makes you feel comfortable"
+            ]
+        },
+        {
+            "variants": [
+                "And then start writing",
+                "And then start writing"
+            ]
+        },
+        {
+            "buttons": 
+            {
+                "text": "Click the Done button when you're fiished",
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "DONE",
+                        "payload": "CHECKIN_DONE"
+                    }
+                ]
+            }
+            
+
+        }
+    ]
+}

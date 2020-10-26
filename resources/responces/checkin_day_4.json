@@ -1,0 +1,54 @@
+{
+    "responses": [
+        {
+            "variants": [
+                "Hey hey Nika",
+                "Hey hey Nika"
+            ]
+        },
+        {
+            "variants": [
+                "It's my life",
+                "It's my life"
+            ]
+        },
+        {
+            "variants": [
+                "It's now or never",
+                "It's now or never"
+            ]
+        },
+        {
+            "variants": [
+                "We ain't gonna live forever",
+                "We ain't gonna live forever"
+            ]
+        },
+        {
+            "video": {
+                "attachment_id": "388197452351715"
+              }
+        },
+        {
+            "variants": [
+                "Ready for morning pages?",
+                "Ready for morning pages?"
+            ]
+        },
+        {
+            "buttons": 
+            {
+                "text": "Click the done button at the end",
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "DONE",
+                        "payload": "CHECKIN_DONE"
+                    }
+                ]
+            }
+            
+
+        }
+    ]
+}
