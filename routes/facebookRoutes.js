@@ -43,7 +43,9 @@ module.exports = (app, setSessionAndUser, getUserData, changeConvState, handleWi
                 if (pageEntry.messaging) {
                     // Iterate over each messaging event
                     pageEntry.messaging.forEach(function(messagingEvent) {
-                        if (messagingEvent.message) {
+                        if (messagingEvent.optin) {
+                            receivedOptin(messagingEvent);
+                        } else if (messagingEvent.message) {
                             receivedMessage(messagingEvent);
                         } else if (messagingEvent.postback) {
                             receivedPostback(messagingEvent);
@@ -76,6 +78,17 @@ module.exports = (app, setSessionAndUser, getUserData, changeConvState, handleWi
         let optin = event.optin;
         
         switch (optin.type) {
+            case 'one_time_notif_req':
+                const userDataNew = {
+                    one_time_notif_token: optin.one_time_notif_token,
+                    conv_state: optin.payload
+                };
+                userService.updateCurrentUserAndSession( senderID, sessionId, userDataNew );
+                
+                let userData = getUserData(sessionId);
+
+                fbService.readResponsesFromJSON(senderID, userData, 'notification_accepted');
+                break;
             default:
                 break;
         }

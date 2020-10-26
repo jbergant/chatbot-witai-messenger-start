@@ -8,24 +8,12 @@
             ]
         },
         {
-            "video": {
-                "attachment_id": "1111629125906242"
-              }
-        },
-        {
-            "image": {
-                "attachment_id": "2796965443960061"
-              }
-        },
-        {
-            "file": {
-                "attachment_id": "1136816756715045"
-              }
-        },
-        {
-            "audio": {
-                "attachment_id": "368613697727126"
-              }
+            "one_time_notifiaction": 
+            {
+                "title": "Click OK if I can",
+                "payload": "ONE_TIME_NOTIFICATION"
+
+            }
         }
     ]
 }

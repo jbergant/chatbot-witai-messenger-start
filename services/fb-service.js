@@ -83,7 +83,9 @@ module.exports = {
             await self.sendImageMessage(sender, response.image);
         } else if (response.audio) {
             await self.sendAudioMessage(sender, response.audio);
-        }
+        } else if (response.one_time_notifiaction) {
+            await self.sendOneTimeNotification(sender, response.one_time_notifiaction);
+        } 
 
     },
 
