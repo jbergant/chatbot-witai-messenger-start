@@ -37,6 +37,21 @@
                 "Are you in?",
                 "Wanna start"
             ]
+        },
+        {
+            "buttons": 
+            {
+                "text": "Click start to begin",
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Start",
+                        "payload": "START"
+                    }
+                ]
+            }
+            
+
         }
     ]
 }

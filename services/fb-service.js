@@ -54,8 +54,7 @@ module.exports = {
                 for(let [i, response] of content.responses.entries()) {
                     await self.sendTypingOn(sender);
                     await self.wait(1000);
-                    let text = response.variants[Math.floor(Math.random() * response.variants.length)];
-                    await self.sendTextMessage(sender, text);
+                    await self.handleMessage(response, sender, userData);
                 }
             }
         } catch(e) {
