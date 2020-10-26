@@ -29,7 +29,7 @@
         {
             "variants": [
                 "I'll lift you up when you need it",
-                "I'll puch you when you need it"
+                "I'll help you when you need it"
             ]
         },
         {
@@ -50,6 +50,7 @@
                     }
                 ]
             }
+
         }
     ]
 }

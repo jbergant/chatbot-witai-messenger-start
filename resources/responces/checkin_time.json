@@ -1,0 +1,10 @@
+{
+    "responses": [
+        {
+            "variants": [
+                "At what hour do you want me to checkin with you (for example 8am)",
+                "What hour of checkin is best for you (for example 9am)"
+            ]
+        }
+    ]
+}

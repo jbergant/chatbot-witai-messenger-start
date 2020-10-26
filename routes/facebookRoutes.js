@@ -115,7 +115,7 @@ module.exports = (app, setSessionAndUser, getUserData, changeConvState, handleWi
         var quickReply = message.quick_reply;
         
 
-        let sessionIds = await setSessionAndUser(senderID, 'facebook');
+        let sessionIds = await setSessionAndUser(senderID);
         if (quickReply) {
             handleQuickReply(senderID, sessionIds, quickReply, messageId);
         } else if (messageText) {
@@ -145,7 +145,7 @@ module.exports = (app, setSessionAndUser, getUserData, changeConvState, handleWi
         var timeOfPostback = event.timestamp;
 
         //let sessionIds = await
-        let sessionIds = await setSessionAndUser(senderID, 'facebook');
+        let sessionIds = await setSessionAndUser(senderID);
 
         // The 'payload' param is a developer-defined field which is set in a postback
         // button for Structured Messages.
@@ -155,7 +155,21 @@ module.exports = (app, setSessionAndUser, getUserData, changeConvState, handleWi
 
         // console.log(payload);
         switch (payload) {
-            
+            case "START": {
+                changeConvState(senderID, payload);
+                fbService.readResponsesFromJSON(senderID, userData, 'deal');
+                break;
+            }   
+            case "DEAL": {
+                changeConvState(senderID, payload);
+                fbService.readResponsesFromJSON(senderID, userData, 'contract');
+                break;
+            }
+            case "CONTRACT": {
+                changeConvState(senderID, 'CURRENT_TIME_ASK');
+                fbService.readResponsesFromJSON(senderID, userData, 'current_time');
+                break;
+            }  
             default: 
             //unindentified payload
                 fbService.sendTextMessage(senderID, "I'm not sure what you want. Can you be more specific?");

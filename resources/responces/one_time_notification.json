@@ -1,0 +1,36 @@
+{
+    "responses": [
+        {
+            "variants": [
+                "Perfect.",
+                "Great."
+            ]
+        },
+        {
+            "variants": [
+                "I'll be in touch",
+                "I'll contact you then"
+            ]
+        },
+        {
+            "variants": [
+                "One more important thing",
+                "Wait a minute. I need to ask you something important"
+            ]
+        },
+        {
+            "variants": [
+                "Is it ok with you if I contact you anytime later in case you skip your daily morning pages?",
+                "Can I contact you anytime later in case you skip your daily morning pages?"
+            ]
+        },
+        {
+            "one_time_notifiaction": 
+            {
+                "title": "Click OK if I can",
+                "payload": "ONE_TIME_NOTIFICATION"
+
+            }
+        }
+    ]
+}

@@ -3,6 +3,7 @@ const axios = require('axios');
 const config = require('../config/dev');
 const userService = require('./user-service');
 
+const Firestore = require('@google-cloud/firestore');
 
 let _changeConvState;
 module.exports = {
@@ -29,14 +30,46 @@ module.exports = {
         let timeStates = ['CURRENT_TIME_ASK', 'CHECKIN_TIME_ASK'];
         
 
-        if (self.isDefined(intents) && intents[0] !== undefined) {
-            self.handleWitIntent(sender, sessionIds, userData, response);
-        } else if (timeStates.includes(userData.conv_state)  && entities['wit$datetime:Time'] !== undefined) {
+        if (timeStates.includes(userData.conv_state)  && entities['wit$datetime:Time'] !== undefined) {
             self.setupTimes(sender, sessionIds,userData, entities['wit$datetime:Time'][0]);
+        } else if (self.isDefined(intents) && intents[0] !== undefined) {
+            self.handleWitIntent(sender, sessionIds, userData, response);
         } else {
             // @TODO: what happens here???
             self.sendTextMessage(sender, "No intent found.");
         }
+    },
+
+    setupTimes: function(sender, sessionIds, userData, dateEntity) {
+        let self = module.exports;
+        let sessionId = sessionIds.get(sender);
+        if ( userData.conv_state === 'CURRENT_TIME_ASK' ) {
+            const serverDate = new Date();
+
+            const now = new Date(dateEntity.value.substring(0, 16));
+            let time_diff = (serverDate.getHours() - now.getHours());
+
+            const userDataNew = {
+                time_diff,
+                conv_state_update: Firestore.Timestamp.now(),
+                conv_state: 'CHECKIN_TIME_ASK'
+            };
+            userService.updateCurrentUserAndSession(sender, sessionId, userDataNew);
+            self.readResponsesFromJSON(sender, userData, 'checkin_time');
+        } else if ( userData.conv_state === 'CHECKIN_TIME_ASK' ) {
+
+            const time = new Date(dateEntity.value.substring(0, 16));
+            const check_time = time.getHours() + userData.time_diff;
+            const userDataNew = {
+                send_checkin: true,
+                check_time,
+                conv_state_update: Firestore.Timestamp.now(),
+                conv_state: 'ONETIME_NOTIF_ASK'
+            };
+            userService.updateCurrentUserAndSession( sender, sessionId, userDataNew );
+            self.readResponsesFromJSON(sender, userData, 'one_time_notification');
+        }
+
     },
 
 
@@ -46,7 +79,7 @@ module.exports = {
         const path = require('path');
 
         let desiredPath = path.resolve(__dirname, `../resources/responces/${fileName.replace(/\W/g, '')}.json`);
-  
+        console.log('desiredPath: ', desiredPath);
         if (! fs.existsSync(desiredPath)) {
             desiredPath = path.resolve(__dirname, `../resources/responces/noJSONfile.json`);
         } 
